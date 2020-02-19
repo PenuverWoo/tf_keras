@@ -11,10 +11,14 @@ x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 
 model = tf.keras.models.Sequential()                              # trainning processing
+
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(200, activation=tf.nn.relu))
+print(model.supports_masking )
 model.add(tf.keras.layers.Dense(200, activation=tf.nn.relu))
+print(model.supports_masking )
 model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))
+print(model.supports_masking )
 
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
